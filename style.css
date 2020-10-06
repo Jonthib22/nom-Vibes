@@ -1,0 +1,25 @@
+.navColor{
+    position: absolute;
+    background-color: red;
+}
+
+.selectIngredientColor {
+    position: absolute;
+    background-color: aqua;
+}
+
+.recipieSelectColor{
+    position: absolute;
+    background-color: red;
+
+}
+
+.selectedRecepieColor{
+    position: absolute;
+    background-color: green;
+}
+
+.musicColor{
+    position: absolute;
+    background-color: yellow;
+}
