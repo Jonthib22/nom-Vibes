@@ -1,5 +1,33 @@
 $(document).ready(function() {
     // Handler for .ready() called.
+    //the key will be the recipe country, and the value will be the last.fm country
+    var countries = {
+        "American":"united%20states%20of%america",
+        "British":"united%20kingdom%20of%20great%20britain%20and%20northern%20ireland",
+        "Canadian":"canada",
+        "Chinese":"china",
+        "Dutch":"sint%20maarten",
+        "Egyptian":"egypt",
+        "French":"france",
+        "Greek":"greece",
+        "Indian":"india",
+        "Irish":"ireland",
+        "Italian":"italy",
+        "Jamaican":"jamaica",
+        "Japanese":"japan",
+        "Kenyan":"kenya",
+        "Malaysian":"malaysia",
+        "Mexican":"mexico",
+        "Moroccan":"morocco",
+        "Polish":"poland",
+        "Russian":"russia",
+        "Spanish":"spain",
+        "Thai":"thailand",
+        "Tunisian":"tunisia",
+        "Turkish":"turkey",
+        "Unknown":"n/a",
+        "Vietnamese":"vietnam"
+    };
     
     var queryURL = "https://www.themealdb.com/api/json/v1/1/filter.php?i=";
     //when search button is clicked we update the url
@@ -40,7 +68,19 @@ $(document).ready(function() {
         }
     });
 
-    
+    //starting to use the last fm
+    function generateMusic(country){
+        
+    }
+
+    $.ajax({
+        url: "http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=canada&api_key=8bd98ee5d6bf7bf16e0c41730330e56d&format=json",
+        method: "GET"}).then(function(response){
+            console.log(response);
+            console.log(response.tracks.track[0].name);
+            console.log(response.tracks.track[0].artist.name);            
+            
+    });
     
 
 });
