@@ -31,8 +31,12 @@
 }
 
 #foodPic{
+
     width: 350px;
     height: 300px;
     align-items: center;
     float: center;
+   width: 300px;
+    height: 300px;
+
 }
