@@ -61,6 +61,7 @@ $(document).ready(function() {
             });
         });
 
+
         
         
 
@@ -70,6 +71,7 @@ $(document).ready(function() {
             method: "GET"
             }).then(function(response){
                 console.log("We were passed the Id:"+id);
+                $("#foodPic").attr("src", response.meals[0].strMealThumb)
                 let ingredientList = [response.meals[0].strIngredient1,response.meals[0].strIngredient2, response.meals[0].strIngredient3, response.meals[0].strIngredient4,response.meals[0].strIngredient5, response.meals[0].strIngredient6, response.meals[0].strIngredient7, response.meals[0].strIngredient8, response.meals[0].strIngredient9, response.meals[0].strIngredient10, response.meals[0].strIngredient11, response.meals[0].strIngredient12, response.meals[0].strIngredient13, response.meals[0].strIngredient14, response.meals[0].strIngredient15, response.meals[0].strIngredient16, response.meals[0].strIngredient17, response.meals[0].strIngredient18, response.meals[0].strIngredient19, response.meals[0].strIngredient20];    
                 let measurementList = [response.meals[0].strMeasure1,response.meals[0].strMeasure2, response.meals[0].strMeasure3, response.meals[0].strMeasure4,response.meals[0].strMeasure5, response.meals[0].strMeasure6, response.meals[0].strMeasure7, response.meals[0].strMeasure8, response.meals[0].strMeasure9, response.meals[0].strMeasure10, response.meals[0].strMeasure11, response.meals[0].strMeasure12, response.meals[0].strMeasure13, response.meals[0].strMeasure14, response.meals[0].strMeasure15, response.meals[0].strMeasure16, response.meals[0].strMeasure17, response.meals[0].strMeasure18, response.meals[0].strMeasure19, response.meals[0].strMeasure20];
                 
@@ -77,6 +79,53 @@ $(document).ready(function() {
                 console.log(ingredientList);
                 console.log(measurementList);
             });
+=======
+        mainIngredient="";        
+
+
+        
+        
+
+        
+       
+
+        function makeRecipeCard(id){
+        $.ajax({
+           url: "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id,
+           method: "GET"
+           
+        }).then(function(response){
+            $("#foodPic").attr("src", response.meals[0].strMealThumb)
+            console.log(response);
+            let ingredientList = [response.meals[0].strIngredient1,response.meals[0].strIngredient2, response.meals[0].strIngredient3, response.meals[0].strIngredient4,response.meals[0].strIngredient5, response.meals[0].strIngredient6, response.meals[0].strIngredient7, response.meals[0].strIngredient8, response.meals[0].strIngredient9, response.meals[0].strIngredient10, response.meals[0].strIngredient11, response.meals[0].strIngredient12, response.meals[0].strIngredient13, response.meals[0].strIngredient14, response.meals[0].strIngredient15, response.meals[0].strIngredient16, response.meals[0].strIngredient17, response.meals[0].strIngredient18, response.meals[0].strIngredient19, response.meals[0].strIngredient20]
+            
+        
+            let measurementList = [response.meals[0].strMeasure1,response.meals[0].strMeasure2, response.meals[0].strMeasure3, response.meals[0].strMeasure4,response.meals[0].strMeasure5, response.meals[0].strMeasure6, response.meals[0].strMeasure7, response.meals[0].strMeasure8, response.meals[0].strMeasure9, response.meals[0].strMeasure10, response.meals[0].strMeasure11, response.meals[0].strMeasure12, response.meals[0].strMeasure13, response.meals[0].strMeasure14, response.meals[0].strMeasure15, response.meals[0].strMeasure16, response.meals[0].strMeasure17, response.meals[0].strMeasure18, response.meals[0].strMeasure19, response.meals[0].strMeasure20]
+            
+            console.log(response.meals[0].strArea);
+            console.log(response.meals[0].strInstructions);
+            console.log(ingredientList);
+            console.log(measurementList);
+            
+            
+
+            //going to go the long route and just type each one out one at a time since you can't access them in the array meals. 
+            //var ingredientList = [response.meals.strIngredient1, response.meals.strIngredient2, response.meals.strIngredient3, response.meals.strIngriedient4, response.meals.strIngredient5, response.meals.strIngredient6, response.meals.strIngriedient7, response.meals.strIngredient8, response.meals.strIngredient9, response.meals.strIngriedient10, response.meals.strIngriedient11, response.meals.strIngredient12, response.meals.strIngredient13, response.meals.strIngriedient14, response.meals.response.meals.strIngredient15, response.meals.strIngredient16, response.meals.strIngriedient17, response.meals.strIngredient18, response.meals.strIngredient19, response.meals.strIngriedient20];
+            for (var i=0; i<ingredientList.length; i++){
+                //console.log(ingrediendtList[i]);
+                
+                
+            }
+            
+            
+
+        });
+        //this function will make the recipe card 
+        // use id number w/ ajax w/ url 
+        //https://www.themealdb.com/api/json/v1/1/lookup.php?i={mealIDgoesHere}
+        //link to card-content
+        //strInstructions has info for how to make
+
         }
     });
 

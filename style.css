@@ -1,15 +1,25 @@
-#page-container {
-  position: relative;
-  min-height: 100vh;
+.navColor{
+    position: absolute;
+    background-color: red;
 }
 
-#content-wrap {
-  padding-bottom: 2.5rem;    /* Footer height */
+.selectIngredientColor {
+    position: absolute;
+    background-color: aqua;
 }
 
-#footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 2.5rem;            /* Footer height */
+.recipieSelectColor{
+    position: absolute;
+    background-color: red;
+
+}
+
+.selectedRecepieColor{
+    position: absolute;
+    background-color: green;
+}
+
+.musicColor{
+    position: absolute;
+    background-color: yellow;
 }
