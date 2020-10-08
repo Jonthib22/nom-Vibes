@@ -23,3 +23,8 @@
     position: absolute;
     background-color: yellow;
 }
+
+#foodPic{
+    width: 300px;
+    height: 300px;
+}

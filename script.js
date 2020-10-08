@@ -79,7 +79,7 @@ $(document).ready(function() {
                 console.log(ingredientList);
                 console.log(measurementList);
             });
-=======
+
         mainIngredient="";        
 
 
@@ -127,7 +127,7 @@ $(document).ready(function() {
         //strInstructions has info for how to make
 
         }
-    });
+    }});
 
 
     //starting to use the last fm
