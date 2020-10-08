@@ -59,20 +59,22 @@ $(document).ready(function() {
 
                 }
         });
-        mainIngredient="";
-
+        mainIngredient="";        
 
 
         
-
         
 
+        
+       
 
         function makeRecipeCard(id){
         $.ajax({
            url: "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id,
            method: "GET"
+           
         }).then(function(response){
+            $("#foodPic").attr("src", response.meals[0].strMealThumb)
             console.log(response);
             let ingredientList = [response.meals[0].strIngredient1,response.meals[0].strIngredient2, response.meals[0].strIngredient3, response.meals[0].strIngredient4,response.meals[0].strIngredient5, response.meals[0].strIngredient6, response.meals[0].strIngredient7, response.meals[0].strIngredient8, response.meals[0].strIngredient9, response.meals[0].strIngredient10, response.meals[0].strIngredient11, response.meals[0].strIngredient12, response.meals[0].strIngredient13, response.meals[0].strIngredient14, response.meals[0].strIngredient15, response.meals[0].strIngredient16, response.meals[0].strIngredient17, response.meals[0].strIngredient18, response.meals[0].strIngredient19, response.meals[0].strIngredient20]
             
