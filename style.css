@@ -11,5 +11,27 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 2.5rem;            /* Footer height */
+  height: 2.5rem;   
+}         /* Footer height */
+.recipieSelectColor{
+    position: absolute;
+    background-color: red;
+
+}
+
+.selectedRecepieColor{
+    position: absolute;
+    background-color: green;
+}
+
+.musicColor{
+    position: absolute;
+    background-color: yellow;
+}
+
+#foodPic{
+    width: 350px;
+    height: 300px;
+    align-items: center;
+    float: center;
 }

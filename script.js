@@ -61,6 +61,7 @@ $(document).ready(function() {
             });
         });
 
+
         
         
 
@@ -69,19 +70,23 @@ $(document).ready(function() {
             url: "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id,
             method: "GET"
             }).then(function(response){
+                //here is where we will add the recipe information
                 console.log("We were passed the Id:"+id);
+                $("#foodPic").attr("src", response.meals[0].strMealThumb)
                 let ingredientList = [response.meals[0].strIngredient1,response.meals[0].strIngredient2, response.meals[0].strIngredient3, response.meals[0].strIngredient4,response.meals[0].strIngredient5, response.meals[0].strIngredient6, response.meals[0].strIngredient7, response.meals[0].strIngredient8, response.meals[0].strIngredient9, response.meals[0].strIngredient10, response.meals[0].strIngredient11, response.meals[0].strIngredient12, response.meals[0].strIngredient13, response.meals[0].strIngredient14, response.meals[0].strIngredient15, response.meals[0].strIngredient16, response.meals[0].strIngredient17, response.meals[0].strIngredient18, response.meals[0].strIngredient19, response.meals[0].strIngredient20];    
                 let measurementList = [response.meals[0].strMeasure1,response.meals[0].strMeasure2, response.meals[0].strMeasure3, response.meals[0].strMeasure4,response.meals[0].strMeasure5, response.meals[0].strMeasure6, response.meals[0].strMeasure7, response.meals[0].strMeasure8, response.meals[0].strMeasure9, response.meals[0].strMeasure10, response.meals[0].strMeasure11, response.meals[0].strMeasure12, response.meals[0].strMeasure13, response.meals[0].strMeasure14, response.meals[0].strMeasure15, response.meals[0].strMeasure16, response.meals[0].strMeasure17, response.meals[0].strMeasure18, response.meals[0].strMeasure19, response.meals[0].strMeasure20];
+
                 
-                generateMusic(response.meals[0].strArea);
                 console.log(ingredientList);
                 console.log(measurementList);
+                generateMusic(response.meals[0].strArea);
             });
+        mainIngredient="";        
         }
     });
 
 
-    //starting to use the last fm
+    //starting to use the last fm - aminadab
     function generateMusic(country){
         console.log("The meal is:" +country);
         console.log("Here are the top 25 songs from: "+ countries[country]);
@@ -99,10 +104,6 @@ $(document).ready(function() {
                 
         });
     }
-
-    
-    
-
 });
 
 
