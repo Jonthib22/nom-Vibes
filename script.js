@@ -81,9 +81,10 @@ $(document).ready(function() {
                 console.log(measurementList);
                 generateMusic(response.meals[0].strArea);
             });
+
         mainIngredient="";        
         }
-    });
+    }});
 
 
     //starting to use the last fm - aminadab
