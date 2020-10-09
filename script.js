@@ -84,7 +84,7 @@ $(document).ready(function() {
 
         mainIngredient="";        
         }
-    }});
+    });
 
 
     //starting to use the last fm - aminadab
