@@ -2,6 +2,7 @@ $(document).ready(function () {
     // Handler for .ready() called.
     //the key will be the recipe country, and the value will be the last.fm country
     var countries = {
+
         "American": "united%20states%20of%america",
         "British": "united%20kingdom%20of%20great%20britain%20and%20northern%20ireland",
         "Canadian": "canada",
@@ -34,7 +35,6 @@ $(document).ready(function () {
     $("#searchBtn").on("click", function (event) {
         //save input from user
         var mainIngredient = $("#recipe-input").val();
-        console.log(queryURL);
         event.preventDefault();
         $.ajax({
             url: queryURL + mainIngredient,
@@ -50,6 +50,7 @@ $(document).ready(function () {
                 recipeEl.attr("mealID", response.meals[i].idMeal);
                 recipeEl.attr("class", "recipeBtn");
                 listEl.append(recipeEl);
+                listEl.append($("<br>"));
                 listEl.append($("<br>"));
             }
 
@@ -93,6 +94,7 @@ $(document).ready(function () {
 
                 }
 
+
                 console.log(ingredientList);
                 console.log(measurementList);
                 generateMusic(response.meals[0].strArea);
@@ -104,21 +106,32 @@ $(document).ready(function () {
 
 
     //starting to use the last fm - aminadab
-    function generateMusic(country) {
-        console.log("The meal is:" + country);
-        console.log("Here are the top 25 songs from: " + countries[country]);
+
+    function generateMusic(country){
+        console.log("The meal is:" +country);
+        $("#country-name").text("Here are the top 5 song from "+ countries[country]);
 
         $.ajax({
-            url: "http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country=" + countries[country] + "&api_key=8bd98ee5d6bf7bf16e0c41730330e56d&format=json",
-            method: "GET"
-        }).then(function (response) {
-
+            url: "http://ws.audioscrobbler.com/2.0/?method=geo.gettoptracks&country="+countries[country]+"&api_key=8bd98ee5d6bf7bf16e0c41730330e56d&format=json",
+            method: "GET"}).then(function(response){    
             console.log(response);
-            for (var i = 0; i < 25; i++) {
-                console.log(response.tracks.track[i].name);
-                console.log(response.tracks.track[i].artist.name);
-                console.log("");
-            }
+
+            $(document).ready(function(){
+                $('.carousel').carousel();
+                //want to populate the country name
+                $("#country-name").text("Here are the top 5 songs from "+ countries[country]);
+                for(var i=1;i<6;i++){
+
+                    // console.log(response.tracks.track[i].name);
+                    // console.log(response.tracks.track[i].artist.name); 
+                    $("#music-link-"+i).attr("href", response.tracks.track[i].url);
+                    $("#music-link-"+i).text("Track Title: \n"+response.tracks.track[i].name+" Artist Name: "+response.tracks.track[i].artist.name);
+                    //$("#music-image-"+i).attr("src","https://lorempixel.com/250/250/nature/5");
+                    //console.log( $("#music-image-"+i).attr("src"));
+                } 
+            });
+            //$("#music-link-1").text("music test");
+            
 
         });
     }
