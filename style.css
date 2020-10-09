@@ -40,3 +40,12 @@
     height: 300px;
 
 }
+
+.carousel-item{
+    color: red;
+}
+
+
+.card-image{
+    padding-left: 15%;
+}
